@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/image_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_internet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty_two"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/no_internet_connection"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/sixteen_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_internet" />
+
+    <Button
+        android:id="@+id/btn_try_again"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/sixteen"
+        android:layout_marginBottom="@dimen/thirty_two"
+        android:layout_height="wrap_content"
+        android:text="@string/try_again"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sixteen_sp"
+        android:background="@drawable/bg_red"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

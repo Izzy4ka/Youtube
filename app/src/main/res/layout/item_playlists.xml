@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/sixteen"
+        android:layout_marginVertical="@dimen/sixteen">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card"
+            android:layout_width="@dimen/one_six_zero"
+            android:layout_height="@dimen/one_zero"
+            app:cardCornerRadius="@dimen/four"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/item_image_play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/thirty"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/black_alpha" />
+
+                <TextView
+                    android:id="@+id/item_txt_playlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="@dimen/forty_six"
+                    android:layout_marginBottom="@dimen/six"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twelve_sp"
+                    tools:text="pljay" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/item_txt_title"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eight"
+            android:fontFamily="sans-serif-black"
+            android:textAlignment="textStart"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/sixteen_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_card"
+            app:layout_constraintTop_toTopOf="@id/item_card"
+            tools:text="adkfadfasfasdfasfdasfasdfadsfas" />
+
+        <TextView
+            android:id="@+id/item_txt_count"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eight"
+            android:layout_marginTop="@dimen/four"
+            android:textAlignment="textStart"
+            android:textColor="@color/fifteen_color"
+            android:textSize="@dimen/twelve_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_card"
+            app:layout_constraintTop_toBottomOf="@id/item_txt_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
