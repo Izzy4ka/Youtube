@@ -14,8 +14,6 @@ class MainViewModel : BaseViewModel() {
     val playList: StateFlow<PlayList> get() = _playList
 
 
-
-
      fun fetchPlayList() {
         viewModelScope.launch {
             PlayListRepository.getPlayList()

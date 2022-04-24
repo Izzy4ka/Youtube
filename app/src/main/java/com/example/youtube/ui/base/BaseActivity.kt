@@ -3,7 +3,6 @@ package com.example.youtube.ui.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewbinding.BuildConfig
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding>(

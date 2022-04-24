@@ -14,9 +14,11 @@ class RetrofitClient {
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             val okHttpClient = OkHttpClient.Builder()
-                .writeTimeout(20, TimeUnit.SECONDS)
-                .readTimeout(20, TimeUnit.SECONDS)
-                .addInterceptor(interceptor).build()
+                .apply {
+                    writeTimeout(20, TimeUnit.SECONDS)
+                    readTimeout(20, TimeUnit.SECONDS)
+                    addInterceptor(interceptor)
+                }.build()
             val retrofit = Retrofit.Builder().apply {
                 baseUrl(BASE_URL)
                 addConverterFactory(GsonConverterFactory.create())
