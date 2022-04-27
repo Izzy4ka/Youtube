@@ -2,4 +2,8 @@
     <string name="app_name">Youtube</string>
     <string name="no_internet_connection">No Internet Connection</string>
     <string name="try_again">Try again</string>
+    <string name="video_series">%s video series</string>
+    <string name="can_not_load_data">Упс, не удалось загрузить данные</string>
+    <string name="playlist">Playlist</string>
+    <string name="back">Back</string>
 </resources>

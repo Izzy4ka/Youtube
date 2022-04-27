@@ -1,4 +1,4 @@
-package com.example.youtube.ui.base
+package com.example.youtube.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,17 +11,16 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding>(
     AppCompatActivity(
     ) {
     protected abstract val viewModel: VM
-    private var lolBinding: VB? = null
+    private var _binding: VB? = null
     protected val binding: VB
-        get() = lolBinding as VB
+        get() = _binding as VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lolBinding = bindingInflater.invoke(layoutInflater)
-        lolBinding.run { setContentView(binding.root) }
+        _binding = bindingInflater.invoke(layoutInflater)
+        _binding.run { setContentView(binding.root) }
         checkInternet()
-        initViewModel()
-        setupUi()
+        setupUI()
         setupObservers()
     }
 
@@ -29,7 +28,6 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding>(
 
     open fun setupObservers() {}
 
-    abstract fun setupUi()
+    abstract fun setupUI()
 
-    open fun initViewModel() {}
 }

@@ -7,6 +7,7 @@ data class PlayList(
     @SerializedName("etag")
     val tag: String? = null,
     val nextPageToken: String? = null,
+    val prevPageToken: String? = null,
     @SerializedName("pageInfo")
     val pageInfo: PageInfo? = null,
     @SerializedName("items")

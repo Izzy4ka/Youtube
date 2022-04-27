@@ -1,12 +1,14 @@
-package com.example.youtube.utils.ext
+package com.example.youtube.ui.utils.ext
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 
 fun Context.showToast(message: String) =
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
@@ -46,3 +48,7 @@ fun Context.isOnline(): Boolean {
     }
     return false
 }
+
+fun ImageView.loadImage(url: String) =
+    Glide.with(this).load(url)
+        .into(this)
