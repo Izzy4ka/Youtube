@@ -7,9 +7,7 @@ import com.example.youtube.domain.item_play_list.entity.ItemPlayerList
 import com.example.youtube.domain.item_play_list.use_case.GetItemPlayListUseCase
 import com.example.youtube.domain.item_play_list.use_case.GetOnePlayListUseCase
 import com.example.youtube.domain.play_list.entity.PlayList
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class PlayerViewModel(
@@ -27,7 +25,14 @@ class PlayerViewModel(
     fun getPlayList(id: String) {
         viewModelScope.launch {
             getOnePlayListUseCase.getPlayList(id)
+                .onStart {
+                    setLoading()
+                }
+                .catch {
+                    hideLoading()
+                }
                 .collect {
+                    hideLoading()
                     _playList.value = it
                 }
         }

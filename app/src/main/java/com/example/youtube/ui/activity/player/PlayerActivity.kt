@@ -30,14 +30,14 @@ class PlayerActivity : BaseActivity<PlayerViewModel, ActivityPlayerBinding>(
 ) {
     override val viewModel by viewModel<PlayerViewModel>()
 
-    private lateinit var adapter: PlayerItemAdapter
+    private val adapter: PlayerItemAdapter = PlayerItemAdapter()
 
     private var id = ""
 
     override fun setupUI() {
-        initAdapter()
         initToolbar()
         initBtn()
+        initAdapter()
     }
 
     override fun setupObservers() {
@@ -91,11 +91,9 @@ class PlayerActivity : BaseActivity<PlayerViewModel, ActivityPlayerBinding>(
     private fun handleState(state: CombinedLoadStates) {
         binding.progressMain.isVisible = state.refresh is LoadState.Loading
         binding.checkInternet.root.isVisible = state.refresh is LoadState.Error
-        binding.btnPlay.isVisible = state.refresh is LoadState.Error
     }
 
     private fun initAdapter() {
-        adapter = PlayerItemAdapter()
 
         val tryAgainAction: TryAgainAction = { adapter.retry() }
 
@@ -110,16 +108,20 @@ class PlayerActivity : BaseActivity<PlayerViewModel, ActivityPlayerBinding>(
         super.checkInternet()
         if (isOnline()) {
             binding.checkInternet.root.gone()
-            binding.btnPlay.gone()
+            binding.appbar.visible()
         } else {
             binding.checkInternet.root.visible()
-            binding.btnPlay.visible()
+            binding.appbar.gone()
         }
     }
 
     private fun initBtn() {
         binding.txtBack.setOnClickListener {
             finish()
+        }
+        binding.checkInternet.btnTryAgain.setOnClickListener {
+            checkInternet()
+            setupObservers()
         }
     }
 

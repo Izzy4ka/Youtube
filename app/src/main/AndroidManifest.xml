@@ -15,8 +15,7 @@
         android:theme="@style/Theme.Youtube">
         <activity
             android:name=".ui.activity.player.PlayerActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.main.MainActivity"
             android:exported="true">

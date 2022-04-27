@@ -40,13 +40,14 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
     private fun initBtn() {
         binding.checkInternet.btnTryAgain.setOnClickListener {
             checkInternet()
+            setupObservers()
         }
     }
 
     override fun setupObservers() {
         super.setupObservers()
-        observeState()
         observePlayList()
+        observeState()
     }
 
     private fun initAdapter() {
@@ -63,9 +64,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
 
     override fun checkInternet() {
         super.checkInternet()
-        if (isOnline())
+        if (isOnline()) {
             binding.checkInternet.root.gone()
-        else
+        } else
             binding.checkInternet.root.visible()
 
     }
